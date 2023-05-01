@@ -30,4 +30,13 @@ enum SideMenuViewModel: Int, CaseIterable {
         case .logout: return "arrow.left.square"
         }
     }
+    
+    var title: String {
+        switch self {
+        case .profile: return "profile"
+        case .lists: return "lists"
+        case .bookmarks: return "bookmarks"
+        case .logout: return "logout"
+        }
+    }
 }

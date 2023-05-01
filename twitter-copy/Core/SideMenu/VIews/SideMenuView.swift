@@ -12,8 +12,35 @@ import SwiftUI
 struct SideMenuView: View {
     
     var body: some View {
-        VStack {
-            Text("1234")
+        VStack(alignment: .leading, spacing: 32) {
+            VStack(alignment: .leading) {
+                Circle()
+                    .frame(width: 40, height: 40)
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("jack")
+                        .font(.headline)
+                    Text("@jack")
+                        .font(.caption)
+                        .foregroundColor(.gray)
+                }
+                
+                UserStackView()
+                    .padding(.vertical)
+            }
+            .padding(.leading)
+            ForEach(SideMenuViewModel.allCases, id: \.rawValue) { option in
+                HStack(spacing: 16) {
+                    Image(systemName: option.imageName)
+                        .font(.headline)
+                        .foregroundColor(.gray)
+                    Text(option.title)
+                        .font(.subheadline)
+                    Spacer()
+                }
+                .frame(height: 40)
+                .padding(.horizontal)
+            }            
+            Spacer()
         }
     }
 }
